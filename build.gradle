@@ -1,0 +1,24 @@
+// Top-level build file - MarioFit
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        // jcenter() necessario para algumas libs antigas
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.3'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
