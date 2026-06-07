@@ -54,6 +54,14 @@ public class MainClock extends DigitalClockWidget {
     private TextPaint hourFont, minutesFont, secondsFont, indicatorFont, dateFont, dayFont, weekdayFont, monthFont, yearFont, ampmFont;
     private Bitmap dateIcon, hourHand, minuteHand, secondsHand, background;
 
+    // ========================================================
+    // MarioFit - Sprites e variáveis de animação
+    // ========================================================
+    private Bitmap marioStar, marioMushroom, marioCloud, marioSparkle;
+    private int lastMinute = -1;      // Para detectar mudança de minuto
+    private int animationTicks = 0;   // Quantos ticks de animação restam (max 3 = 3 segundos)
+    // ========================================================
+
     private String[] digitalNums = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     private String[] digitalNumsNo0 = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9"};//no 0 on first digit
 
@@ -261,6 +269,19 @@ public class MainClock extends DigitalClockWidget {
         this.yearFont.setTextSize(settings.yearFontSize);
         this.yearFont.setColor(settings.yearColor);
         this.yearFont.setTextAlign( (settings.yearAlignLeft) ? Paint.Align.LEFT : Paint.Align.CENTER );
+
+        // ========================================================
+        // MarioFit - Carrega sprites para animação
+        // ========================================================
+        try {
+            this.marioStar = Util.decodeImage(service.getResources(), "mario/star.png");
+            this.marioMushroom = Util.decodeImage(service.getResources(), "mario/mushroom.png");
+            this.marioCloud = Util.decodeImage(service.getResources(), "mario/cloud.png");
+            this.marioSparkle = Util.decodeImage(service.getResources(), "mario/sparkle.png");
+        } catch (Exception e) {
+            Log.e("MarioFit", "Erro carregando sprites: " + e.getMessage());
+        }
+        // ========================================================
     }
 
     // Screen open watch mode
@@ -269,6 +290,18 @@ public class MainClock extends DigitalClockWidget {
         // Draw background image
         //this.background.draw(canvas);
         canvas.drawBitmap(this.background, 0f, 0f, settings.mGPaint);
+
+        // ========================================================
+        // MarioFit - Detecta mudança de minuto e starta animação
+        // ========================================================
+        if (this.lastMinute != minutes) {
+            if (this.lastMinute != -1) {
+                // Minuto mudou - dispara animação por 3 ticks
+                this.animationTicks = 3;
+            }
+            this.lastMinute = minutes;
+        }
+        // ========================================================
 
         if(settings.digital_clock) {
             // Draw hours
@@ -363,6 +396,48 @@ public class MainClock extends DigitalClockWidget {
         if(settings.yearBool) {
             canvas.drawText(Integer.toString(year), settings.yearLeft, settings.yearTop, this.yearFont);
         }
+
+        // ========================================================
+        // MarioFit - Desenha sprites animados quando minuto muda
+        // animationTicks: 3 = primeiro tick (mais intenso)
+        //                 2 = segundo tick (médio)
+        //                 1 = terceiro tick (fading out)
+        //                 0 = sem animação
+        // ========================================================
+        if (this.animationTicks > 0 && this.marioStar != null) {
+            try {
+                // Estrelas piscando ao lado dos blocos amarelos (posições fixas)
+                // Apenas em ticks ímpares (3 e 1) - dá efeito de "piscar"
+                if (this.animationTicks % 2 == 1) {
+                    if (this.marioStar != null) {
+                        // Estrela à esquerda do bloco da hora
+                        canvas.drawBitmap(this.marioStar, 50f, 110f, settings.mGPaint);
+                        // Estrela à direita do bloco dos minutos
+                        canvas.drawBitmap(this.marioStar, 240f, 110f, settings.mGPaint);
+                    }
+                }
+
+                // Cogumelo "subindo" do bloco do minuto
+                // Y vai diminuindo conforme animationTicks: 3=130, 2=105, 1=80
+                if (this.marioMushroom != null) {
+                    float mushroomY = 130f - ((3 - this.animationTicks) * 25f);
+                    canvas.drawBitmap(this.marioMushroom, 200f, mushroomY, settings.mGPaint);
+                }
+
+                // Sparkles ao redor (decoração extra)
+                if (this.marioSparkle != null) {
+                    canvas.drawBitmap(this.marioSparkle, 90f, 120f, settings.mGPaint);
+                    canvas.drawBitmap(this.marioSparkle, 220f, 160f, settings.mGPaint);
+                }
+
+                // Decrementa o contador de animação
+                this.animationTicks--;
+            } catch (Exception e) {
+                Log.e("MarioFit", "Erro renderizando sprites: " + e.getMessage());
+                this.animationTicks = 0;
+            }
+        }
+        // ========================================================
     }
 
     // Screen locked/closed watch mode (Slpt mode)

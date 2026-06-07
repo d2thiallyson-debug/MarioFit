@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">GreatFit Watchface</string>
-    <string name="watch_face">GreatFit</string>
+    <string name="app_name">MarioFit Watchface</string>
+    <string name="watch_face">MarioFit</string>
     <string name="author">GreatApo</string>
 
     <!-- Settings -->
