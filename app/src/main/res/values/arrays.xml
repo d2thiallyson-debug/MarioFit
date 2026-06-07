@@ -3,11 +3,11 @@
 
     <!-- Constant Elements -->
     <array name="hours">
-        <item name="font_size">190px</item> <!-- font size -->
-        <item name="left">108px</item> <!-- position left -->
-        <item name="top">226px</item> <!-- position top -->
-        <item name="color">#ff0000</item> <!-- color -->
-        <item name="align_left">false</item> <!-- align left -->
+        <item name="font_size">70px</item>
+        <item name="left">85px</item>
+        <item name="top">140px</item>
+        <item name="color">#000000</item>
+        <item name="align_left">false</item>
     </array>
     <!-- ":" -->
     <!-- <array name="indicator">
@@ -18,18 +18,18 @@
        <item name="align_left">false</item>
     </array> -->
     <array name="minutes">
-        <item name="font_size">130px</item>
-        <item name="left">220px</item>
-        <item name="top">184px</item>
-        <item name="color">#fff</item>
-        <item name="align_left">false</item> <!-- not supported -->
+        <item name="font_size">70px</item>
+        <item name="left">195px</item>
+        <item name="top">140px</item>
+        <item name="color">#000000</item>
+        <item name="align_left">false</item>
     </array>
     <array name="seconds">
-       <item name="font_size">32px</item>
-       <item name="left">282px</item>
-       <item name="top">140px</item>
+       <item name="font_size">0px</item>
+       <item name="left">0px</item>
+       <item name="top">0px</item>
        <item name="color">#fff</item>
-       <item name="align_left">false</item> <!-- not supported -->
+       <item name="align_left">false</item>
     </array>
     <!--
     <array name="analog_hours">
@@ -49,30 +49,30 @@
     </array>
     -->
     <array name="am_pm">
-       <item name="font_size">30px</item>
-       <item name="left">282px</item>
-       <item name="top">180px</item>
+       <item name="font_size">0px</item>
+       <item name="left">0px</item>
+       <item name="top">0px</item>
        <item name="color">#fff</item>
        <item name="align_left">false</item>
     </array>
     <array name="weekday">
-        <item name="font_size">28px</item>
-        <item name="left">182px</item>
-        <item name="top">254px</item>
+        <item name="font_size">0px</item>
+        <item name="left">0px</item>
+        <item name="top">0px</item>
         <item name="color">#fff</item>
         <item name="align_left">true</item>
     </array>
     <array name="month">
-        <item name="font_size">28px</item>
-        <item name="left">182px</item>
-        <item name="top">220px</item>
+        <item name="font_size">0px</item>
+        <item name="left">0px</item>
+        <item name="top">0px</item>
         <item name="color">#fff</item>
         <item name="align_left">true</item>
     </array>
     <array name="day">
-        <item name="font_size">28px</item>
-        <item name="left">234px</item>
-        <item name="top">254px</item>
+        <item name="font_size">0px</item>
+        <item name="left">0px</item>
+        <item name="top">0px</item>
         <item name="color">#fff</item>
         <item name="align_left">true</item>
     </array>
@@ -86,86 +86,84 @@
 
 
 
-    <!-- Widgets -->
-    <integer-array name="widgets"> <!-- Reset your settings after adding/removing items on this array -->
-        <item>2</item> <!-- Widget 1: type from "supported widgets" list -->
-        <item>1</item> <!-- Widget 2: type from "supported widgets" list -->
-        <item>24</item>
-        <item>8</item>
-        <item>28</item>
+    <!-- Widgets - tipos de dados:
+         0=date, 1=calories, 2=steps, 3=heart_rate, 8=battery_percent, 9=temperature -->
+    <integer-array name="widgets">
+        <item>3</item>  <!-- Widget 1: HEART RATE -->
+        <item>0</item>  <!-- Widget 2: DATE -->
+        <item>9</item>  <!-- Widget 3: TEMPERATURE -->
+        <item>8</item>  <!-- Widget 4: BATTERY -->
+        <item>2</item>  <!-- Widget 5: STEPS -->
     </integer-array>
 
-    <!-- Widget 1 -->
+    <!-- Widget 1: HEART RATE - topo esquerdo (ao lado do coração no fundo) -->
     <array name="widget1">
-        <item name="font_size">24px</item> <!-- font size -->
-        <item name="left">110px</item> <!-- position top -->
-        <item name="top">77px</item> <!-- position left -->
-        <item name="color">#fff</item> <!-- color -->
-        <item name="align_left">true</item> <!-- align left -->
-        <item name="units">true</item> <!-- units (if supported) -->
-        <item name="icon">true</item> <!-- icon -->
-        <item name="iconLeft">87px</item> <!-- icon's left positioning -->
-        <item name="iconTop">58px</item> <!-- icon's top positioning -->
+        <item name="font_size">22px</item>
+        <item name="left">68px</item>
+        <item name="top">38px</item>
+        <item name="color">#FFFFFF</item>
+        <item name="align_left">true</item>
+        <item name="units">false</item>
+        <item name="icon">false</item>
+        <item name="iconLeft">0px</item>
+        <item name="iconTop">0px</item>
     </array>
-    <!-- Widget 2 -->
+    <!-- Widget 2: DATE - topo centro (ao lado do cogumelinho) -->
     <array name="widget2">
-        <item name="font_size">24px</item>
-        <item name="left">192px</item>
-        <item name="top">77px</item>
-        <item name="color">#fff</item>
+        <item name="font_size">22px</item>
+        <item name="left">155px</item>
+        <item name="top">38px</item>
+        <item name="color">#FFFFFF</item>
         <item name="align_left">true</item>
-        <item name="units">true</item>
-        <item name="icon">true</item>
-        <item name="iconLeft">170px</item>
-        <item name="iconTop">58px</item>
+        <item name="units">false</item>
+        <item name="icon">false</item>
+        <item name="iconLeft">0px</item>
+        <item name="iconTop">0px</item>
     </array>
-    <!-- Widget 3 -->
+    <!-- Widget 3: TEMPERATURE - topo direito (ao lado da nuvem) -->
     <array name="widget3">
-        <item name="font_size">24px</item>
-        <item name="left">90px</item>
-        <item name="top">256px</item>
-        <item name="color">#fff</item>
+        <item name="font_size">22px</item>
+        <item name="left">245px</item>
+        <item name="top">38px</item>
+        <item name="color">#FFFFFF</item>
         <item name="align_left">true</item>
         <item name="units">true</item>
-        <item name="icon">true</item>
-        <item name="iconLeft">66px</item>
-        <item name="iconTop">238px</item>
+        <item name="icon">false</item>
+        <item name="iconLeft">0px</item>
+        <item name="iconTop">0px</item>
     </array>
-    <!-- Widget 4 -->
+    <!-- Widget 4: BATTERY - esquerda, abaixo do coração -->
     <array name="widget4">
-        <item name="font_size">24px</item>
-        <item name="left">160px</item>
-        <item name="top">294px</item>
-        <item name="color">#fff</item>
-        <item name="align_left">false</item>
-        <item name="units">true</item>
-        <item name="icon">true</item>
-        <item name="iconLeft">120px</item>
-        <item name="iconTop">276px</item>
-    </array>
-    <!-- Widget 5 -->
-    <array name="widget5">
-        <item name="font_size">24px</item>
-        <item name="left">23px</item>
-        <item name="top">182px</item>
-        <item name="color">#fff</item>
+        <item name="font_size">22px</item>
+        <item name="left">68px</item>
+        <item name="top">75px</item>
+        <item name="color">#FFFFFF</item>
         <item name="align_left">true</item>
         <item name="units">true</item>
-        <item name="icon">true</item>
-        <item name="iconLeft">22px</item>
-        <item name="iconTop">140px</item>
+        <item name="icon">false</item>
+        <item name="iconLeft">0px</item>
+        <item name="iconTop">0px</item>
+    </array>
+    <!-- Widget 5: STEPS - barra escura do meio embaixo -->
+    <array name="widget5">
+        <item name="font_size">20px</item>
+        <item name="left">130px</item>
+        <item name="top">215px</item>
+        <item name="color">#FFFFFF</item>
+        <item name="align_left">true</item>
+        <item name="units">false</item>
+        <item name="icon">false</item>
+        <item name="iconLeft">0px</item>
+        <item name="iconTop">0px</item>
     </array>
     <!-- Add more widget here if you like, here and in the "widgets" list -->
 
 
 
 
-    <!-- Progress bars -->
-    <integer-array name="circle_bars"> <!-- Reset your settings after adding/removing items on this array -->
-        <item>0</item> <!-- Bar 1: type from "supported progress elements" list -->
-        <!-- <item>2</item> --> <!-- Bar 2 -->
-        <!-- <item>0</item> --> <!-- Bar 3 --> <!-- Currently it has battery images -->
-        <!-- <item>1</item> --> <!-- Bar 4 --> <!-- Currently it has steps images, but it is basically just circular bar images -->
+    <!-- Progress bars - desativadas para não criar círculos sobre o cenário Mario -->
+    <integer-array name="circle_bars">
+        <!-- Sem bars -->
     </integer-array>
 
     <!-- Bar 1 -->
