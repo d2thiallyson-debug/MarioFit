@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings (Do not change) -->
+    <dimen name="padding_round">16dp</dimen>
+    <dimen name="padding_round_small">8dp</dimen>
+    <dimen name="padding_round_large">24dp</dimen>
+</resources>
